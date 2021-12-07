@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+  
+</head>
+
+<body style="background-image: url('../static/image/bg.jpg') no-repeat cover">
+ <div class="login">
+	<h1>Classificador de doença cardíaca</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+    <input type="text" name="age" placeholder="Idade" required="required" />
+    <input type="text" name="sex" placeholder="Sexo" required="required" />
+		<input type="text" name="cp" placeholder="Tipo de dor no peito" required="required" />
+		<input type="text" name="trestbps" placeholder="Pressão arterial em repouso (em mm Hg na admissão ao hospital)" required="required" />
+		<input type="text" name="chol" placeholder="colesterol sérico em mg / dl" required="required" />
+		<input type="text" name="fbs" placeholder="(açúcar no sangue em jejum & gt; 120 mg / dl) (1 = verdadeiro; 0 = falso)" required="required" />
+		<input type="text" name="restecg" placeholder="resultados eletrocardiográficos em repouso" required="required" />
+		<input type="text" name="thalach" placeholder="frequência cardíaca máxima alcançada" required="required" />
+		<input type="text" name="exang" placeholder="angina induzida por exercício (1 = sim; 0 = não)" required="required" />
+		<input type="text" name="oldpeak" placeholder="Depressão de ST induzida por exercício em relação ao repouso" required="required" />
+		<input type="text" name="slope" placeholder="a inclinação do segmento ST de pico do exercício" required="required" />
+		<input type="text" name="ca" placeholder="número de vasos principais (0-3) coloridos por fluorosopia" required="required" />
+		<input type="text" name="thal" placeholder="3 = normal; 6 = defeito corrigido; 7 = defeito reversível" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Classificar</button>
+    </form>
+
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
